@@ -30,10 +30,12 @@
     <!-- @ symbol , Reference context path of your application (app root)   -->
 
     <form th:action="@{/employees/search}" class="form-inline">
+        <div sec:authorize="hasAnyRole('ROLE_MANAGER', 'ROLE_ADMIN')">
         <a th:href="@{/employees/showFormForAdd}"
            class="btn btn-primary btn-sm mr-5 mb-3">
             Add Employee
         </a>
+        </div>
         <input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="employeeName" placeholder="Search by name" />
 
         <button class="btn btn-success mb-3" type="submit">Search</button>
